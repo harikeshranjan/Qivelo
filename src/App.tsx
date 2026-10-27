@@ -3,6 +3,7 @@ import AppLayout from "./layouts/app-layout";
 import HomePage from "./pages/homepage";
 import SettingsPage from "./pages/settings";
 import JpgToPngPage from "./pages/jpg-to-png";
+import PngToJpgPage from "./pages/png-to-jpg";
 
 function App() {
     return (
@@ -14,7 +15,7 @@ function App() {
 
                     <Route path="converter">
                         <Route path="jpg-to-png" element={<JpgToPngPage />} />
-                        <Route path="png-to-jpg" element={<HomePage />} />
+                        <Route path="png-to-jpg" element={<PngToJpgPage />} />
                     </Route>
                 </Route>
             </Routes>
