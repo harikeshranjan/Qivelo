@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import {
     Accordion,
     AccordionContent,
@@ -10,6 +10,8 @@ import { ArrowLeftRight, Settings, Sparkles, Zap } from "lucide-react";
 import { converterLinks } from "../static_files/sidebar";
 
 export default function Sidebar() {
+    const navigate = useNavigate();
+
     return (
         <aside className="flex h-screen w-65 shrink-0 flex-col border-r border-border bg-sidebar text-sidebar-foreground">
             {/* App header */}
@@ -128,6 +130,7 @@ export default function Sidebar() {
                     type="button"
                     variant="ghost"
                     className="h-10 w-full justify-start gap-2.5 px-3 text-muted-foreground hover:text-foreground"
+                    onClick={() => navigate("/settings")}
                 >
                     <Settings className="size-4" />
                     Settings

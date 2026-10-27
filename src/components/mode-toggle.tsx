@@ -1,4 +1,4 @@
-import { useTheme } from "@/providers/theme-provider";
+import { useTheme } from "../providers/theme-provider";
 import { Switch } from "./ui/switch";
 import { Moon, Sun } from "lucide-react";
 
@@ -17,6 +17,7 @@ export default function ModeToggle() {
                     setTheme(checked ? "dark" : "light")
                 }
                 aria-label="Toggle dark mode"
+                className="cursor-pointer"
             />
 
             <Moon className="size-4 text-muted-foreground" />
