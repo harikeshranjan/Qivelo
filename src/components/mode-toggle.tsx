@@ -1,17 +1,25 @@
 import { useTheme } from "@/providers/theme-provider";
-import { Button } from "./ui/button";
+import { Switch } from "./ui/switch";
 import { Moon, Sun } from "lucide-react";
 
 export default function ModeToggle() {
     const { theme, setTheme } = useTheme();
 
-    const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light");
-    };
+    const isDark = theme === "dark";
 
     return (
-        <Button variant={"outline"} onClick={toggleTheme}>
-            {theme === "light" ? <Sun /> : <Moon />}
-        </Button>
+        <div className="flex items-center gap-2">
+            <Sun className="size-4 text-muted-foreground" />
+
+            <Switch
+                checked={isDark}
+                onCheckedChange={(checked: boolean) =>
+                    setTheme(checked ? "dark" : "light")
+                }
+                aria-label="Toggle dark mode"
+            />
+
+            <Moon className="size-4 text-muted-foreground" />
+        </div>
     );
 }

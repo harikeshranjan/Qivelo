@@ -6,21 +6,8 @@ import {
     AccordionTrigger,
 } from "./ui/accordion";
 import { Button } from "./ui/button";
-import {
-    ArrowLeftRight,
-    FileImage,
-    Image,
-    Settings,
-    Sparkles,
-    Zap,
-} from "lucide-react";
-
-const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `group flex items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors ${
-        isActive
-            ? "bg-emerald-500/10 font-medium text-emerald-600 dark:text-emerald-400"
-            : "text-muted-foreground hover:bg-accent hover:text-foreground"
-    }`;
+import { ArrowLeftRight, Settings, Sparkles, Zap } from "lucide-react";
+import { converterLinks } from "../static_files/sidebar";
 
 export default function Sidebar() {
     return (
@@ -69,7 +56,7 @@ export default function Sidebar() {
                             value="converter"
                             className="border-none"
                         >
-                            <AccordionTrigger className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-foreground hover:no-underline [&[data-state=open]>svg]:text-emerald-600 dark:[&[data-state=open]>svg]:text-emerald-400">
+                            <AccordionTrigger className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-foreground hover:no-underline [&[data-state=open]>svg]:text-emerald-600 dark:[&[data-state=open]>svg]:text-emerald-400 cursor-pointer">
                                 <span className="flex items-center gap-2.5">
                                     <ArrowLeftRight className="size-4" />
                                     Converter
@@ -78,21 +65,26 @@ export default function Sidebar() {
 
                             <AccordionContent className="pb-1 pt-1">
                                 <div className="ml-4.5 space-y-1 border-l border-border pl-3">
-                                    <NavLink
-                                        to="/converter/jpg-to-png"
-                                        className={linkClass}
-                                    >
-                                        <Image className="size-4 shrink-0" />
-                                        <span>JPG to PNG</span>
-                                    </NavLink>
+                                    {converterLinks.map((link) => {
+                                        const Icon = link.icon;
 
-                                    <NavLink
-                                        to="/converter/png-to-jpg"
-                                        className={linkClass}
-                                    >
-                                        <FileImage className="size-4 shrink-0" />
-                                        <span>PNG to JPG</span>
-                                    </NavLink>
+                                        return (
+                                            <NavLink
+                                                key={link.href}
+                                                to={link.href}
+                                                className={({ isActive }) =>
+                                                    `group flex items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors no-underline! hover:no-underline! ${
+                                                        isActive
+                                                            ? "bg-emerald-500/10 font-medium text-emerald-600 dark:text-emerald-400"
+                                                            : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                                                    }`
+                                                }
+                                            >
+                                                <Icon className="size-4 shrink-0" />
+                                                <span>{link.name}</span>
+                                            </NavLink>
+                                        );
+                                    })}
                                 </div>
                             </AccordionContent>
                         </AccordionItem>
