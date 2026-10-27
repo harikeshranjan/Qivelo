@@ -5,14 +5,12 @@ import { Outlet } from "react-router";
 export default function AppLayout() {
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-            <main className="flex min-h-screen">
+            <div className="flex h-screen overflow-hidden">
                 <Sidebar />
-
-                <section className="min-w-0 flex-1">
+                <main className="min-w-0 flex-1 overflow-y-auto">
                     <Outlet />
-                </section>
-            </main>
-            Ï
+                </main>
+            </div>
         </ThemeProvider>
     );
 }
