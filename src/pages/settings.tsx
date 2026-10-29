@@ -14,7 +14,7 @@ import {
 
 export default function SettingsPage() {
     return (
-        <div className="mx-auto w-full max-w-4xl space-y-8 p-6 md:p-10">
+        <div className="mx-auto w-full max-w-6xl space-y-8 p-6 md:p-10">
             {/* Header */}
             <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">

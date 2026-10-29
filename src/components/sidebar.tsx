@@ -6,7 +6,7 @@ import {
     AccordionTrigger,
 } from "./ui/accordion";
 import { Button } from "./ui/button";
-import { ArrowLeftRight, Settings, Sparkles, Zap } from "lucide-react";
+import { ArrowLeftRight, Home, Settings, Sparkles, Zap } from "lucide-react";
 import { converterLinks } from "../static_files/sidebar";
 
 export default function Sidebar() {
@@ -53,6 +53,21 @@ export default function Sidebar() {
                 </div>
 
                 <nav className="space-y-1">
+                    <NavLink
+                        to="/"
+                        end
+                        className={({ isActive }) =>
+                            `group flex items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors no-underline! hover:no-underline! ${
+                                isActive
+                                    ? "bg-emerald-500/10 font-medium text-emerald-600 dark:text-emerald-400"
+                                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                            }`
+                        }
+                    >
+                        <Home className="size-4 shrink-0" />
+                        <span>Home</span>
+                    </NavLink>
+
                     <Accordion defaultValue={["converter"]} className="w-full">
                         <AccordionItem
                             value="converter"
@@ -91,14 +106,12 @@ export default function Sidebar() {
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
-
                     {/* Future tools */}
                     <div className="px-3 pb-1 pt-5">
                         <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                             More tools
                         </span>
                     </div>
-
                     <Button
                         variant="ghost"
                         disabled
