@@ -107,7 +107,7 @@ export default function Sidebar() {
                         </AccordionItem>
                     </Accordion>
                     {/* Future tools */}
-                    <div className="px-3 pb-1 pt-5">
+                    {/*<div className="px-3 pb-1 pt-5">
                         <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                             More tools
                         </span>
@@ -122,7 +122,7 @@ export default function Sidebar() {
                         <span className="ml-auto rounded border border-border px-1.5 py-0.5 text-[9px] font-medium">
                             SOON
                         </span>
-                    </Button>
+                    </Button>*/}
                 </nav>
             </div>
 
